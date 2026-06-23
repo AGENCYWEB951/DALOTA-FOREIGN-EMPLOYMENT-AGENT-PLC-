@@ -7,27 +7,33 @@
     <style>
         /* --- GLOBAL VARIABLES & RESET --- */
         :root {
-            --dark-silver: #1E2022;
-            --metallic-silver: #3A3F44;
-            --light-silver: #F0F2F5;
+            --dark-silver: #16181A;
+            --metallic-silver: #2E3236;
+            --mid-silver: #8A949E;
+            --light-silver: #E2E8F0;
+            --futuristic-bg: linear-gradient(135deg, #E6EAEF 0%, #CCD3DB 100%);
+            --glass-card: rgba(255, 255, 255, 0.45);
+            --glass-border: rgba(255, 255, 255, 0.6);
             --accent-glow: #00FFA3; 
             --bright-text: #FFFFFF;
-            --text-dark: #111418;
-            --border-radius: 12px;
-            --transition-fast: 0.25s ease;
+            --text-dark: #1A1F26;
+            --border-radius: 16px;
+            --transition-fast: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --cyber-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             scroll-behavior: smooth;
         }
 
         body {
             color: var(--text-dark);
-            background-color: #FFFFFF;
+            background: var(--futuristic-bg);
+            background-attachment: fixed;
             line-height: 1.6;
         }
 
@@ -35,44 +41,49 @@
         header {
             position: sticky;
             top: 0;
-            background-color: var(--dark-silver);
+            background: rgba(22, 24, 26, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             color: var(--bright-text);
-            padding: 14px 5%;
+            padding: 16px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border-bottom: 2px solid var(--metallic-silver);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .logo-area h1 {
             font-size: 1.4rem;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            font-weight: 900;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, #FFFFFF, var(--mid-silver));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .logo-area p {
             font-size: 0.75rem;
             color: var(--accent-glow);
             font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         /* --- PREMIUM LANGUAGE TOGGLER --- */
         .lang-switcher {
             display: flex;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
             padding: 4px;
             border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         .lang-btn {
             background: none;
             border: none;
-            color: white;
-            padding: 6px 14px;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 6px 16px;
             font-size: 0.85rem;
             font-weight: 700;
             cursor: pointer;
@@ -81,37 +92,53 @@
         }
 
         .lang-btn:hover {
-            background: rgba(255, 255, 255, 0.15);
+            color: var(--bright-text);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .lang-btn.active {
             background-color: var(--accent-glow);
             color: var(--dark-silver);
-            box-shadow: 0 0 10px var(--accent-glow);
+            box-shadow: 0 0 15px rgba(0, 255, 163, 0.6);
         }
 
         /* --- HERO SECTION --- */
         .hero {
-            background: linear-gradient(135deg, var(--dark-silver) 0%, var(--metallic-silver) 100%);
+            background: linear-gradient(180deg, var(--dark-silver) 0%, var(--metallic-silver) 100%);
             color: var(--bright-text);
-            padding: 80px 5% 70px 5%;
+            padding: 100px 5% 90px 5%;
             text-align: center;
-            border-bottom: 4px solid var(--accent-glow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
         }
 
         .hero h2 {
-            font-size: 2.6rem;
-            margin-bottom: 15px;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
             font-weight: 800;
-            letter-spacing: 0.5px;
+            letter-spacing: -0.5px;
+            background: linear-gradient(120deg, #FFFFFF 40%, var(--light-silver));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            font-size: 1.15rem;
-            max-width: 750px;
-            margin: 0 auto 35px auto;
-            color: #E2E8F0;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            color: #A0AEC0;
             font-weight: 400;
+            line-height: 1.8;
         }
 
         .cta-container {
@@ -119,11 +146,11 @@
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .btn {
-            padding: 14px 30px;
+            padding: 14px 32px;
             border-radius: var(--border-radius);
             font-weight: 700;
             text-decoration: none;
@@ -137,21 +164,22 @@
         .btn-primary { 
             background-color: var(--accent-glow); 
             color: var(--dark-silver); 
-            box-shadow: 0 4px 15px rgba(0, 255, 163, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 255, 163, 0.4);
         }
         .btn-primary:hover { 
             background-color: #00E691; 
-            transform: translateY(-2px); 
-            box-shadow: 0 6px 20px rgba(0, 255, 163, 0.5);
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 25px rgba(0, 255, 163, 0.6);
         }
         .btn-secondary { 
             background-color: transparent; 
             color: var(--bright-text); 
-            border: 2px solid var(--bright-text); 
+            border: 2px solid rgba(255, 255, 255, 0.4); 
         }
         .btn-secondary:hover { 
-            background-color: rgba(255, 255, 255, 0.1); 
-            transform: translateY(-2px); 
+            border-color: var(--bright-text);
+            background: rgba(255, 255, 255, 0.08); 
+            transform: translateY(-3px); 
         }
 
         /* --- STACKED FLAG GRID --- */
@@ -159,186 +187,215 @@
             display: flex;
             justify-content: center;
             gap: 25px;
-            margin-top: 35px;
+            margin-top: 45px;
             flex-wrap: wrap;
         }
 
         .flag-card {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.05);
             padding: 16px 28px;
             border-radius: var(--border-radius);
             display: flex;
             flex-direction: column; 
             align-items: center;
             gap: 12px;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: var(--transition-fast);
             font-weight: 600;
-            min-width: 140px;
+            min-width: 150px;
+            color: #E2E8F0;
         }
 
         .flag-img {
             width: 45px;
             height: auto;
             border-radius: 4px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             object-fit: contain;
         }
 
         .flag-card:hover {
-            transform: scale(1.08);
-            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.12);
             border-color: var(--accent-glow);
+            color: var(--bright-text);
+            box-shadow: 0 5px 15px rgba(0, 255, 163, 0.2);
         }
 
         /* --- CREDENTIALS & TRUST --- */
         .credentials {
-            padding: 40px 5%;
-            background-color: var(--light-silver);
+            padding: 50px 5%;
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 25px;
             text-align: center;
         }
 
         .credential-box {
-            background: white;
-            padding: 25px;
+            background: var(--glass-card);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            padding: 30px 25px;
             border-radius: var(--border-radius);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--cyber-shadow);
             flex: 1;
-            min-width: 260px;
-            border-top: 4px solid var(--metallic-silver);
+            min-width: 280px;
+            border-top: 4px solid var(--dark-silver);
+            transition: var(--transition-fast);
+        }
+        
+        .credential-box:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.6);
         }
 
         .credential-box h3 {
             color: var(--dark-silver);
-            font-weight: 700;
+            font-weight: 800;
+            font-size: 1.15rem;
         }
 
         .section-title {
             text-align: center;
-            margin: 60px 0 30px 0;
-            font-size: 2.2rem;
+            margin: 70px 0 35px 0;
+            font-size: 2.4rem;
             color: var(--dark-silver);
-            font-weight: 800;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.8);
         }
 
         /* --- WORKFLOW PIPELINE --- */
         .pipeline {
             padding: 20px 5%;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 30px;
         }
 
         .step-card {
-            background: white;
-            border: 1px solid #E1E4E8;
-            padding: 30px 20px;
+            background: var(--glass-card);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            padding: 35px 25px;
             border-radius: var(--border-radius);
             position: relative;
+            box-shadow: var(--cyber-shadow);
             transition: var(--transition-fast);
         }
 
         .step-card:hover {
-            box-shadow: 0 12px 20px rgba(0,0,0,0.08);
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.6);
             border-color: var(--dark-silver);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
         }
 
         .step-card h3 {
             color: var(--dark-silver);
-            margin-bottom: 8px;
-            font-weight: 700;
+            margin-bottom: 10px;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+        
+        .step-card p {
+            color: #4A5568;
+            font-size: 0.95rem;
         }
 
         .step-num {
             position: absolute;
-            top: -15px;
-            left: 20px;
+            top: -18px;
+            left: 25px;
             background: var(--dark-silver);
             color: var(--accent-glow);
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 800;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         /* --- DATA TABLES --- */
         .table-container {
             width: 90%;
-            margin: 30px auto 50px auto;
+            margin: 30px auto 60px auto;
             overflow-x: auto;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+            box-shadow: var(--cyber-shadow);
             border-radius: var(--border-radius);
-            background: #FFFFFF;
-            padding: 10px;
-            border: 1px solid var(--light-silver);
+            background: var(--glass-card);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 12px;
+            border: 1px solid var(--glass-border);
         }
 
         table {
             width: 100%;
             border-collapse: separate;
-            border-spacing: 0 6px;
+            border-spacing: 0 8px;
             text-align: left;
             font-size: 0.95rem;
         }
 
         th { 
-            background-color: var(--dark-silver); 
+            background: var(--dark-silver); 
             color: var(--bright-text); 
-            padding: 18px 20px; 
+            padding: 20px; 
             font-weight: 700;
             text-transform: uppercase;
             font-size: 0.85rem;
             letter-spacing: 1px;
         }
 
-        th:first-child { border-radius: 8px 0 0 8px; }
-        th:last-child { border-radius: 0 8px 8px 0; }
+        th:first-child { border-radius: 10px 0 0 10px; }
+        th:last-child { border-radius: 0 10px 10px 0; }
 
         td { 
-            padding: 16px 20px; 
-            background-color: #F8FAFC;
-            transition: all 0.2s ease;
-            border-top: 1px solid #E2E8F0;
-            border-bottom: 1px solid #E2E8F0;
-            color: #334155;
+            padding: 18px 20px; 
+            background: rgba(255, 255, 255, 0.4);
+            transition: var(--transition-fast);
+            border-top: 1px solid rgba(255,255,255,0.5);
+            border-bottom: 1px solid rgba(255,255,255,0.5);
+            color: #2D3748;
             font-weight: 600;
         }
 
-        td:first-child { border-left: 1px solid #E2E8F0; border-radius: 8px 0 0 8px; color: var(--dark-silver); }
-        td:last-child { border-right: 1px solid #E2E8F0; border-radius: 0 8px 8px 0; }
+        td:first-child { border-left: 1px solid rgba(255,255,255,0.5); border-radius: 10px 0 0 10px; color: var(--dark-silver); }
+        td:last-child { border-right: 1px solid rgba(255,255,255,0.5); border-radius: 0 10px 10px 0; }
 
-        tr:nth-child(even) td { background-color: #F1F5F9; }
+        tr:nth-child(even) td { background: rgba(255, 255, 255, 0.2); }
 
         tr:hover td { 
-            background-color: var(--metallic-silver) !important; 
+            background: var(--dark-silver) !important; 
             color: var(--bright-text);
-            transform: translateY(-1px);
+            border-color: var(--dark-silver);
         }
         
         tr:hover td .salary-badge {
             background-color: var(--accent-glow);
             color: var(--dark-silver);
-            border-color: var(--accent-glow);
+            box-shadow: 0 0 10px rgba(0,255,163,0.5);
         }
 
         .salary-badge {
             display: inline-block;
-            background-color: var(--dark-silver);
-            color: var(--accent-glow);
+            background: var(--metallic-silver);
+            color: #E2E8F0;
             padding: 6px 14px;
             border-radius: 30px;
             font-weight: 800;
             font-size: 0.9rem;
-            border: 1px solid var(--metallic-silver);
+            border: 1px solid rgba(255,255,255,0.1);
             transition: var(--transition-fast);
         }
         
@@ -351,8 +408,8 @@
         .table-flag {
             width: 24px;
             height: auto;
-            border-radius: 2px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+            border-radius: 3px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
             display: inline-block;
             vertical-align: middle;
         }
@@ -360,29 +417,44 @@
         /* --- BENEFITS --- */
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
             padding: 20px 5%;
         }
 
         .benefit-card {
             text-align: center;
-            padding: 25px 15px;
-            background: #FFFFFF;
+            padding: 35px 20px;
+            background: var(--glass-card);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border-radius: var(--border-radius);
-            border: 1px dashed var(--metallic-silver);
+            border: 1px dashed var(--mid-silver);
+            box-shadow: var(--cyber-shadow);
+            transition: var(--transition-fast);
+        }
+
+        .benefit-card:hover {
+            border-style: solid;
+            border-color: var(--dark-silver);
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(1.02);
         }
         
+        .benefit-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
         .benefit-card h4 {
             color: var(--dark-silver);
-            font-weight: 700;
-            margin-top: 10px;
+            font-weight: 800;
+            font-size: 1.2rem;
         }
 
         /* --- REGISTRATION PORTAL --- */
         .portal-section {
-            background-color: var(--light-silver);
-            padding: 50px 5%;
+            padding: 60px 5%;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
@@ -392,50 +464,82 @@
             .portal-section { grid-template-columns: 1fr; }
             header { flex-direction: column; gap: 15px; text-align: center; }
             td, th { padding: 12px 14px; font-size: 0.85rem; }
+            .section-title { font-size: 1.8rem; margin: 40px 0 20px 0; }
         }
 
-        .checklist-box, .form-box { background: white; padding: 30px; border-radius: var(--border-radius); box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
-        .checklist-box h3, .form-box h3 { color: var(--dark-silver); font-weight: 700; margin-bottom: 10px; }
-        .checklist-box ul { list-style: none; margin-top: 15px; }
-        .checklist-box li { position: relative; padding-left: 25px; margin-bottom: 12px; font-weight: 500; }
-        .checklist-box li::before { content: '✓'; position: absolute; left: 0; color: #00E691; font-weight: bold; }
+        .checklist-box, .form-box { 
+            background: var(--glass-card); 
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 40px 35px; 
+            border-radius: var(--border-radius); 
+            box-shadow: var(--cyber-shadow);
+            border: 1px solid var(--glass-border);
+        }
 
-        .form-group { margin-bottom: 18px; }
-        .form-group label { display: block; margin-bottom: 6px; font-weight: 700; font-size: 0.9rem; color: var(--dark-silver); }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #D1D5DB; border-radius: 6px; background-color: #FFF; font-size: 0.95rem; }
+        .checklist-box h3, .form-box h3 { color: var(--dark-silver); font-weight: 800; margin-bottom: 12px; font-size: 1.4rem; }
+        .checklist-box ul { list-style: none; margin-top: 20px; }
+        .checklist-box li { position: relative; padding-left: 30px; margin-bottom: 16px; font-weight: 600; color: #2D3748; }
+        .checklist-box li::before { content: '✦'; position: absolute; left: 0; color: #00E691; font-weight: bold; }
+
+        .form-group { margin-bottom: 22px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 700; font-size: 0.9rem; color: var(--dark-silver); text-transform: uppercase; letter-spacing: 0.5px; }
+        .form-group input, .form-group select, .form-group textarea { 
+            width: 100%; 
+            padding: 12px 16px; 
+            border: 1px solid rgba(0,0,0,0.15); 
+            border-radius: 10px; 
+            background: rgba(255, 255, 255, 0.7); 
+            font-size: 0.95rem; 
+            color: var(--text-dark);
+            transition: var(--transition-fast);
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            background: #FFFFFF;
+            border-color: var(--dark-silver);
+            box-shadow: 0 0 0 3px rgba(22, 24, 26, 0.1);
+        }
 
         /* --- FOOTER --- */
-        footer { background-color: var(--dark-silver); color: #D1D5DB; padding: 40px 5%; font-size: 0.85rem; border-top: 4px solid var(--metallic-silver); }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: left; margin-bottom: 30px; }
-        .footer-grid h4 { color: var(--bright-text); font-weight: 700; }
+        footer { 
+            background: var(--dark-silver); 
+            color: #A0AEC0; 
+            padding: 60px 5% 40px 5%; 
+            font-size: 0.85rem; 
+            border-top: 1px solid rgba(255,255,255,0.1); 
+        }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px; text-align: left; margin-bottom: 40px; }
+        .footer-grid h4 { color: var(--bright-text); font-weight: 800; margin-bottom: 15px; font-size: 1.05rem; letter-spacing: 0.5px; }
 
         .whatsapp-float {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
+            bottom: 30px;
+            right: 30px;
             background-color: #25D366;
             color: white;
-            padding: 12px 24px;
+            padding: 14px 28px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
             z-index: 2000;
             transition: var(--transition-fast);
         }
-        .whatsapp-float:hover { transform: translateY(-3px); }
+        .whatsapp-float:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5); }
 
         /* RTL Alignment support for Arabic */
         .rtl { direction: rtl; text-align: right; }
-        .rtl .step-num { left: auto; right: 20px; }
-        .rtl .checklist-box li { padding-left: 0; padding-right: 25px; }
+        .rtl .step-num { left: auto; right: 25px; }
+        .rtl .checklist-box li { padding-left: 0; padding-right: 30px; }
         .rtl .checklist-box li::before { left: auto; right: 0; }
         .rtl .footer-grid { text-align: right; }
         .rtl table { text-align: right; }
-        .rtl th:first-child { border-radius: 0 8px 8px 0; }
-        .rtl th:last-child { border-radius: 8px 0 0 8px; }
-        .rtl td:first-child { border-radius: 0 8px 8px 0; border-left: none; border-right: 1px solid #E2E8F0; }
-        .rtl td:last-child { border-radius: 8px 0 0 8px; border-right: none; border-left: 1px solid #E2E8F0; }
+        .rtl th:first-child { border-radius: 0 10px 10px 0; }
+        .rtl th:last-child { border-radius: 10px 0 0 10px; }
+        .rtl td:first-child { border-radius: 0 10px 10px 0; border-left: none; border-right: 1px solid rgba(255,255,255,0.5); }
+        .rtl td:last-child { border-radius: 10px 0 0 10px; border-right: none; border-left: 1px solid rgba(255,255,255,0.5); }
     </style>
 </head>
 <body>
@@ -490,15 +594,15 @@
     <section class="credentials">
         <div class="credential-box">
             <h3 id="cred-1-title">🏢 Registered Corporate Entity</h3>
-            <p style="font-size:0.85rem; color:#4B5563; margin-top:5px;" id="cred-1-body">DALOTA Foreign Employment Agent PLC</p>
+            <p style="font-size:0.9rem; color:#4A5568; margin-top:8px;" id="cred-1-body">DALOTA Foreign Employment Agent PLC</p>
         </div>
         <div class="credential-box">
             <h3 id="cred-2-title">🛡️ System Readiness</h3>
-            <p style="font-size:0.85rem; color:#4B5563; margin-top:5px;" id="cred-2-body">Fully integrated with Musaned Platform & WPS networks</p>
+            <p style="font-size:0.9rem; color:#4A5568; margin-top:8px;" id="cred-2-body">Fully integrated with Musaned Platform & WPS networks</p>
         </div>
         <div class="credential-box">
             <h3 id="cred-3-title">⚖️ Legal Compliance</h3>
-            <p style="font-size:0.85rem; color:#4B5563; margin-top:5px;" id="cred-3-body">Authorized by Ministry of Labor & Skills</p>
+            <p style="font-size:0.9rem; color:#4A5568; margin-top:8px;" id="cred-3-body">Authorized by Ministry of Labor & Skills</p>
         </div>
     </section>
 
@@ -562,25 +666,25 @@
         <div class="benefit-card">
             <div class="benefit-icon">🍱</div>
             <h4 id="b1-title">Free Food & Housing</h4>
-            <p style="font-size:0.8rem; color:#4B5563; margin-top:5px;" id="b1-body">Safe accommodation and daily meals provided at zero cost to the worker.</p>
+            <p style="font-size:0.9rem; color:#4A5568; margin-top:8px;" id="b1-body">Safe accommodation and daily meals provided at zero cost to the worker.</p>
         </div>
         <div class="benefit-card">
             <div class="benefit-icon">🏥</div>
             <h4 id="b2-title">Medical Insurance</h4>
-            <p style="font-size:0.8rem; color:#4B5563; margin-top:5px;" id="b2-body">Paid entirely by the hiring employer for the full 2-year contract timeframe.</p>
+            <p style="font-size:0.9rem; color:#4A5568; margin-top:8px;" id="b2-body">Paid entirely by the hiring employer for the full 2-year contract timeframe.</p>
         </div>
         <div class="benefit-card">
             <div class="benefit-icon">✈️</div>
             <h4 id="b3-title">Free Air Travel</h4>
-            <p style="font-size:0.8rem; color:#4B5563; margin-top:5px;" id="b3-body">Deployment ticket and return ticket covered upon successful milestones.</p>
+            <p style="font-size:0.9rem; color:#4A5568; margin-top:8px;" id="b3-body">Deployment ticket and return ticket covered upon successful milestones.</p>
         </div>
     </section>
 
-    <!-- PORTAL & INTERACTION FORMS (EMPLOYER FORM ONLY) -->
+    <!-- PORTAL & INTERACTION FORMS -->
     <section class="portal-section" id="candidate-portal">
         <div class="checklist-box">
             <h3 id="check-title">🇪🇹 Applicant Verification Checks</h3>
-            <p id="check-subtitle">Ensure you fulfill these rules prior to registration:</p>
+            <p id="check-subtitle" style="color: #4A5568;">Ensure you fulfill these rules prior to registration:</p>
             <ul id="check-items">
                 <li>Valid Ethiopian National Passport</li>
                 <li>Conforming to standard legal age limits</li>
@@ -612,12 +716,12 @@
         </div>
     </section>
 
-    <!-- NEW SECTION: JOB SEEKER DIRECT ONLINE REGISTRATION -->
+    <!-- JOB SEEKER DIRECT ONLINE REGISTRATION -->
     <h2 class="section-title" id="title-seeker-section">Job Seeker Application Desk</h2>
-    <div style="max-width: 800px; margin: 0 auto 60px auto; padding: 0 5%;">
+    <div style="max-width: 800px; margin: 0 auto 80px auto; padding: 0 5%;">
         <div class="form-box" id="seeker-form-box">
             <h3 id="seeker-title">Online Registration Portal</h3>
-            <p style="font-size:0.9rem; color:#4B5563; margin-bottom:20px;" id="seeker-subtitle">Complete this application form to send your credentials directly to our recruitment experts via certified email route.</p>
+            <p style="font-size:0.95rem; color:#4A5568; margin-bottom:25px;" id="seeker-subtitle">Complete this application form to send your credentials directly to our recruitment experts via certified email route.</p>
             
             <form onsubmit="submitJobSeekerForm(event)">
                 <div class="form-group">
@@ -733,19 +837,19 @@
                 logo: 'ዳሎታ በውጭ ሀገር ስራና ሰራተኛ አገናኝ',
                 subLogo: 'ህጋዊ ፈቃድ ያለው ኤጀንሲ | አዋጅ ቁጥር 923/2008',
                 heroTitle: 'ታማኝ የኢትዮጵያ ሰራተኞችን ከዓለም አቀፍ የስራ ገበያ ጋር እናገናኛለን',
-                heroDesc: 'በህጋዊ መንገድ የተጣሩ ሰራተኞችን ወደ ሳውዲ አረቢያ፣ ኩዌት፣ ጆርዳን እና ኤምሬትስ በታማኝነት እናሰማራለን።',
+                heroDesc: 'በህጋዊ መንገድ የተጣሩ ሰራተኞችን ወደ ሳውዲ አረቢያ، ኩዌት፣ ጆርዳን እና ኤምሬትስ በታማኝነት እናሰማራለን።',
                 cta1: 'አብረን እንስራ / ሰራተኛ ይጠይቁ',
                 cta2: 'ለመቀጠር ይመዝገቡ',
                 sa: 'ሳውዲ አረቢያ', kw: 'ኩዌት', jo: 'ጆርዳን', ae: 'ኤምሬትስ',
                 cred1T: '🏢 ህጋዊ የተመዘገበ ድርጅት', cred1B: 'ዳሎታ በውጭ ሀገር ስራና ሰራተኛ አገናኝ ኃ/የተ/የግል ማህበር',
-                cred2T: '🛡️ የመረጃ መረብ ዝግጁነት', cred2B: 'ከሙሳነድ እና የደமወዝ ጥበቃ ስርዓቶች ጋር የተገናኘ',
+                cred2T: '🛡️ የመረጃ መረብ ዝግጁነት', cred2B: 'ከሙሳነድ እና የደமወዝ ጥبهቃ ስርዓቶች ጋር የተገናኘ',
                 cred3T: '⚖️ ህጋዊ ተገዢነት', cred3B: 'በስራና ክህلوት ሚኒስቴር እውቅና የተሰጠው',
                 pipeTitle: 'የቅጥር እና ስምሪት የስራ ሂደት',
                 s1T: 'ምልመላ እና ማጣራት', s1B: 'የጀርባ ታሪክ ምርመራ እና የሀገር ውስጥ መዝገቦችን ማረጋገጥ።',
                 s2T: 'የህክምና ምርመرا', s2B: 'የባህረ ሰላጤው ቪዛ ጥብቅ የጤና መስፈርቶችን ማሟላት ማረጋገጥ።',
                 s3T: 'የቅድመ-ስምሪት ስልጠና', s3B: 'የቤት አያያዝ ትምህርት እና መሰረታዊ የአረብኛ ቋንቋ ስልጠና።',
                 s4T: 'የኤምባسي ማረጋገጫ', s4B: 'ህጋዊ የኤሌክትሮኒክስ ውሎችን ማዘጋጀት እና የቪዛ ማህተም ማጠናቀቅ።',
-                s5T: 'ስምሪት እና ክትትل', s5B: 'የበረራ ትኬት ዝግጅት እና የ24 ሰዓት የስራ ላይ ድጋፍ አቅርቦት።',
+                s5T: 'ስምሪት እና ክትትል', s5B: 'የበረራ ትኬት ዝግጅት እና የ24 ሰዓት የስራ ላይ ድጋፍ አቅርቦት።',
                 matrixTitle: 'የስራ መደቦች እና የወር ደመወዝ',
                 thCountry: 'መድረሻ ሀገር', thJob: 'የስራ መደብ', thExp: 'የልምድ ደረጃ', thSalary: 'የወር ደመወዝ መጠን',
                 maid: 'የቤት ሰራተኛ', fresh: 'አዲስ / ለመጀመሪያ ጊዜ', exp: '2 ዓመት እና ከዚያ በላይ ልምድ', driver: 'ሹፌር', domestic: 'የቤት ውስጥ ሰራተኛ (ሁሉም)', legal: 'አነስተኛ ህጋዊ ደመወዝ',
@@ -757,11 +861,11 @@
                 checkItems: [
                     'የጸና የኢትዮጵያ ፓስፖርት',
                     'በህግ የተፈቀደ የእድሜ ክልል ማሟላት',
-                    'ከወንجرል ነፃ መሆን ማረጋገጫ (ፖሊስ ሪፖርት)',
+                    'ከወንጀል ነፃ መሆን ማረጋገጫ (ፖሊስ ሪፖርት)',
                     'የቅድመ ስምሪት ስልጠና ማጠናቀቅ',
                     'የህክምና ምርመራ ማለፍ'
                 ],
-                formT: 'የሰራተኛ ፍላጎት ማቅرهቢያ ፎርም',
+                formT: 'የሰራተኛ ፍላጎት ማቅረቢያ ፎርም',
                 lblF1: 'የድርጅቱ ወይም የቀጣሪው ስም', lblF2: 'የሚፈልጉት መድረሻ ሀገር', lblF3: '-- ምርጫ ይምረጡ --', btnSub: 'ፎርሙን ላክ',
                 
                 // Job Seeker Form Amharic
