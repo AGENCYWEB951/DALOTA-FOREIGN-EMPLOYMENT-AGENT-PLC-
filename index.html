@@ -1,3 +1,4 @@
+HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -153,25 +154,33 @@
             transform: translateY(-2px); 
         }
 
+        /* --- STACKED FLAG GRID --- */
         .flag-grid {
             display: flex;
             justify-content: center;
             gap: 25px;
-            margin-top: 30px;
+            margin-top: 35px;
             flex-wrap: wrap;
         }
 
         .flag-card {
             background: rgba(255, 255, 255, 0.08);
-            padding: 12px 24px;
+            padding: 16px 28px;
             border-radius: var(--border-radius);
             display: flex;
+            flex-direction: column; /* Stacks flag icon cleanly above the text */
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: var(--transition-fast);
             font-weight: 600;
+            min-width: 130px;
+        }
+
+        .flag-card span:first-child {
+            font-size: 2rem; /* Larger, readable flag display */
+            line-height: 1;
         }
 
         .flag-card:hover {
@@ -441,15 +450,15 @@
         
         <div class="cta-container">
             <a href="#employer-form" class="btn btn-primary" id="btn-cta-1">Partner With Us</a>
-            <!-- MAILTO INTEGRATION FOR JOB SEEKERS -->
             <a href="mailto:info@dalotajobs.com?subject=Job%20Seeker%20Registration&body=Hello%20Dalota%20Team%2C%0A%0AI%20am%20interested%20in%20registering%20for%20foreign%20employment%20opportunities.%20Please%20find%20my%20details%20below%3A%0A%0A-%20Full%20Name%3A%20%0A-%20Phone%20Number%3A%20%0A-%20Desired%20Destination%3A%20%0A-%20Experience%20Level%3A%20%0A%0AThank%20you." class="btn btn-secondary" id="btn-cta-2">Register to Work</a>
         </div>
 
+        <!-- STACKED FLAGS LAYOUT -->
         <div class="flag-grid">
-            <div class="flag-card"><span>🇸🇦</span> <span id="flag-sa">Saudi Arabia</span></div>
-            <div class="flag-card"><span>🇰🇼</span> <span id="flag-kw">Kuwait</span></div>
-            <div class="flag-card"><span>🇯🇴</span> <span id="flag-jo">Jordan</span></div>
-            <div class="flag-card"><span>🇦🇪</span> <span id="flag-ae">UAE</span></div>
+            <div class="flag-card"><span>🇸🇦</span><span id="flag-sa">Saudi Arabia</span></div>
+            <div class="flag-card"><span>🇰🇼</span><span id="flag-kw">Kuwait</span></div>
+            <div class="flag-card"><span>🇯🇴</span><span id="flag-jo">Jordan</span></div>
+            <div class="flag-card"><span>🇦🇪</span><span id="flag-ae">UAE</span></div>
         </div>
     </section>
 
@@ -499,7 +508,7 @@
         </div>
     </section>
 
-    <!-- HIGHLY CONTRASTED DATA TABLES -->
+    <!-- DATA TABLES -->
     <h2 class="section-title" id="title-matrix">Job Categories & Salary Structure</h2>
     <div class="table-container">
         <table>
@@ -653,25 +662,25 @@
                 logo: 'ዳሎታ በውጭ ሀገር ስራና ሰራተኛ አገናኝ',
                 subLogo: 'ህጋዊ ፈቃድ ያለው ኤጀንሲ | አዋጅ ቁጥር 923/2008',
                 heroTitle: 'ታማኝ የኢትዮጵያ ሰራተኞችን ከዓለም አቀፍ የስራ ገበያ ጋር እናገናኛለን',
-                heroDesc: 'በህጋዊ መንገድ የተጣሩ ሰራተኞችን ወደ ሳውዲ አረቢያ፣ ኩዌት፣ ጆርዳን እና ኤምሬትስ በታማኝነት እናሰማራለን።',
+                heroDesc: 'በህጋዊ መንገድ የተጣሩ ሰራተኞችን ወደ ሳውዲ አረቢያ، ኩዌት፣ ጆርዳን እና ኤምሬትስ በታማኝነት እናሰማራለን።',
                 cta1: 'አብረን እንስራ / ሰራተኛ ይጠይቁ',
                 cta2: 'ለመቀጠር ይመዝገቡ',
                 sa: 'ሳውዲ አረቢያ', kw: 'ኩዌት', jo: 'ጆርዳን', ae: 'ኤምሬትስ',
                 cred1T: '🏢 ህጋዊ የተመዘገበ ድርጅት', cred1B: 'ዳሎታ በውጭ ሀገር ስራና ሰራተኛ አገናኝ ኃ/የተ/የግል ማህበር',
-                cred2T: '🛡️ የመረጃ መረብ ዝግጁነት', cred2B: 'ከሙሳነድ እና የደመወዝ ጥበቃ ስርዓቶች ጋር የተገናኘ',
+                cred2T: '🛡️ የመረጃ መረብ ዝግጁነት', cred2B: 'ከሙሳነድ እና የደመወዝ ጥبهቃ ስርዓቶች ጋር የተገናኘ',
                 cred3T: '⚖️ ህጋዊ ተገዢነት', cred3B: 'በስራና ክህሎት ሚኒስቴር እውቅና የተሰጠው',
                 pipeTitle: 'የቅጥር እና ስምሪት የስራ ሂደት',
                 s1T: 'ምልመላ እና ማጣራት', s1B: 'የጀርባ ታሪክ ምርመራ እና የሀገር ውስጥ መዝገቦችን ማረጋገጥ።',
                 s2T: 'የህክምና ምርመرا', s2B: 'የባህረ ሰላጤው ቪዛ ጥብቅ የጤና መስፈርቶችን ማሟላት ማረጋገጥ።',
                 s3T: 'የቅድመ-ስምሪት ስልጠና', s3B: 'የቤት አያያዝ ትምህርት እና መሰረታዊ የአረብኛ ቋንቋ ስልጠና።',
-                s4T: 'የኤምባسي ማረጋገጫ', s4B: 'ህጋዊ የኤሌክትሮኒክስ ውሎችን ማዘጋጀት እና የቪዛ ማህተም ማጠናቀቅ።',
+                s4T: 'የኤምባሲ ማረጋገጫ', s4B: 'ህጋዊ የኤሌክትሮኒክስ ውሎችን ማዘጋጀት እና የቪዛ ማህተም ማጠናቀቅ።',
                 s5T: 'ስምሪት እና ክትትል', s5B: 'የበረራ ትኬት ዝግጅት እና የ24 ሰዓት የስራ ላይ ድጋፍ አቅርቦት።',
                 matrixTitle: 'የስራ መደቦች እና የወር ደመወዝ',
                 thCountry: 'መድረሻ ሀገር', thJob: 'የስራ መደብ', thExp: 'የልምድ ደረጃ', thSalary: 'የወር ደመወዝ መጠን',
                 maid: 'የቤት ሰራተኛ', fresh: 'አዲስ / ለመጀመሪያ ጊዜ', exp: '2 ዓመት እና ከዚያ በላይ ልምድ', driver: 'ሹፌር', domestic: 'የቤት ውስጥ ሰራተኛ (ሁሉም)', legal: 'አነስተኛ ህጋዊ ደመወዝ',
                 benefitsTitle: 'በህግ የተደነገጉ ጥቅማጥቅሞች (የቀጣሪ ግዴታዎች)',
                 b1T: 'ነፃ ምግብ እና መኖሪያ', b1B: 'ደህንነቱ የተጠበቀ መኖሪያ እና የዕለት ምግብ ያለ ምንም ክፍያ ይቀርባል።',
-                b2T: 'የህክምና ዋስትና', b2B: 'ለ 2 ዓመታት የውል ዘመን ሙሉ በሙሉ በቀጣሪው የሚሸፈን የህክምና መድን።',
+                b2T: 'የህክምና ዋስትنا', b2B: 'ለ 2 ዓመታት የውል ዘመን ሙሉ በሙሉ በቀጣሪው የሚሸፈን የህክምና መድን።',
                 b3T: 'ነፃ የአየር ጉዞ ትኬት', b3B: 'በስራ መጀመሪያ እና ውል ሲጠናቀቅ የሚሰጥ ነፃ የበረራ ትኬት።',
                 checkT: '🇪🇹 ለአመልካቾች የሚያስፈልጉ መስፈርቶች', checkSub: 'ከመመዝገብዎ በፊት እነዚህን ህጎች ማሟላትዎን ያረጋግጡ:',
                 checkItems: [
@@ -681,7 +690,7 @@
                     'የቅድመ ስምሪት ስልጠና ማጠናቀቅ',
                     'የህክምና ምርመራ ማለፍ'
                 ],
-                formT: 'የሰራተኛ ፍላጎት ማቅرهቢያ ፎርም',
+                formT: 'የሰራተኛ ፍላጎት ማቅረቢያ ፎርም',
                 lblF1: 'የድርጅቱ ወይም የቀጣሪው ስም', lblF2: 'የሚፈልጉት መድረሻ ሀገር', lblF3: '-- ምርጫ ይምረጡ --', btnSub: 'ፎርሙን ላክ',
                 fManager: 'ስራ አስኪያጅ: አቶ አደም መሀመድ አደም',
                 fAddrT: 'የዋናው ቢሮ አድራሻ', fAddrB: 'አዲስ አበባ፣ አራዳ ክፍለ ከተማ፣ ወረዳ 02፣ የቤት ቁጥር 490/491',
@@ -691,7 +700,7 @@
             },
             ar: {
                 dir: 'rtl',
-                logo: 'دالوتـا لتـوظيـف العـمـالـة الخـارجـي~ة',
+                logo: 'دالوتـا لتـوظيـف العـمـالـة الخـارجـيـة',
                 subLogo: 'وكالة خاصة مرخصة | بموجب المرسوم رقم 2016/932',
                 heroTitle: 'ربط الكفاءات الإثيوبية المؤهلة مع الأسواق العالمية المتميزة',
                 heroDesc: 'تعبئة العمالة المنزلية الموثوقة والمدربة إلى المملكة العربية السعودية والكويت والأردن والإمارات بموجب الامتثال القانوني الكامل.',
@@ -728,7 +737,7 @@
                 fAddrT: 'موقع المكتب الرئيسي', fAddrB: 'أديس أبابا، حي أرادا، دائرة 02، مبنى رقم 490/491',
                 fWelfT: 'متابعة ورعاية العمالة', fWelfB: 'نتابع بدقة شؤون العمالة وحل مشاكل الأجور لضمان استقرار العلاقة التعاقدية.',
                 wa: '💬 تواصل معنا عبر الواتساب',
-                mailUrl: "mailto:info@dalotajobs.com?subject=%D8%AA%D8%B3%D9%82%D9%8A%D9%84%20%D8%B7%D9%84%D8%A8%20%D8%A7%D9%84%D8%B9%D9%85%D9%84&body=%D9%85%D8%B1%D8%AD%D8%A8%D9%8A%D8%A7%D9%8B%20%D9%81%D8%B1%D9%8A%D9%82%20%D8%AF%D8%A7%D9%84%D9%84%D9%88%D8%AA%D8%A7%D8%8C%20%D8%A3%D9%86%D8%A7%20%D9%85%D9%87%D8%AA%D9%85%20%D8%A8%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%20%D9%84%D9%84%D8%B9%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AE%D8%A7%D8%B1%D8%AC.%20%D8%A5%D9%84%D9%8A%D9%82%D9%85%20%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA%D9%8A%3A%0A%0A-%20%D8%A7%D9%84%D8%A7%D8%B3%D9%85%20%D8%A3%D9%84%D9%83%D8%A7%D9%85%D9%84%3A%20%0A-%20%D8%B1%D9%82%D9%85%20%D8%A7%D9%84%D9%87%D8%A7%D8%AA%D9%81%3A%20%0A-%20%D8%A7%D9%84%D9%88%D8%AC%D9%87%D8%A9%20%D8%A7%D9%84%D9%85%D8%B7%D9%84%D9%88%D8%A8%D8%A9%3A%20"
+                mailUrl: "mailto:info@dalotajobs.com?subject=%D8%AA%D8%B3%D9%82%D9%8A%D9%84%20%D8%B7%D9%84%D8%A8%20%D8%A7%D9%84%D8%B9%D9%85%D9%84&body=%D9%85%D8%B1%D8%AD%D8%A8%D9%8A%D8%A7%D9%8B%20%D9%81%D8%B1%D9%8A%D9%82%20%D8%AF%D8%A7%D9%84%D9%84%D9%88%D8%AA%D8%A7%D8%8C%20%D8%A3%D9%86%D8%A7%20%D9%85%D9%87%D8%AA%D9%85%20%D8%A8%D8%A7%D9%8LT%D8%B3%D8%AC%D9%8A%D9%84%20%D9%84%D9%84%D8%B9%D9%85%D9%84%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AE%D8%A7%D8%B1%D8%AC.%20%D8%A5%D9%84%D9%8A%D9%82%D9%85%20%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA%D9%8A%3A%0A%0A-%20%D8%A7%D9%84%D8%A7%D8%B3%D9%85%20%D8%A3%D9%84%D9%83%D8%A7%D9%85%D9%84%3A%20%0A-%20%D8%B1%D9%82%D9%85%20%D8%A7%D9%84%D9%87%D8%A7%D8%AA%D9%81%3A%20%0A-%20%D8%A7%D9%84%D9%88%D8%AC%D9%87%D8%A9%20%D8%A7%D9%84%D9%85%D8%B7%D9%84%D9%88%D8%A8%D8%A9%3A%20"
             }
         };
 
