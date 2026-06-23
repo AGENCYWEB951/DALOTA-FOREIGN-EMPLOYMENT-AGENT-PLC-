@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dalota Foreign Employment Agent PLC</title>
+    <style>
+        /* --- GLOBAL VARIABLES & RESET --- */
+        :root {
+            --primary-blue: #0F2C59;
+            --secondary-blue: #1A4D94;
+            --accent-green: #10B981;
+            --text-dark: #1F2937;
+            --text-light: #F9FAFB;
+            --bg-light: #F3F4F6;
+            --border-radius: 12px;
+            --transition-fast: 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-dark);
+            background-color: #FFFFFF;
+            line-height: 1.6;
+        }
+
+        .lang-block {
+            margin-bottom: 4px;
+        }
+        .amharic { color: #E5E7EB; font-size: 0.9rem; }
+        .arabic { color: #10B981; font-size: 0.95rem; font-weight: 500; direction: rtl; }
+        
+        .dark-text .amharic { color: #4B5563; font-size: 0.85rem; }
+        .dark-text .arabic { color: #059669; font-size: 0.9rem; }
+
+        /* --- STICKY HEADER --- */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            padding: 12px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-area h1 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo-area p {
+            font-size: 0.75rem;
+            color: var(--accent-green);
+        }
+
+        .header-contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            font-size: 0.85rem;
+            text-align: right;
+        }
+
+        .header-contacts a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        .header-contacts a:hover {
+            color: var(--accent-green);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: var(--text-light);
+            padding: 60px 5% 50px 5%;
+            text-align: center;
+        }
+
+        .hero h2 { font-size: 2.2rem; margin-bottom: 10px; font-weight: 800; }
+        .hero .amharic-main { font-size: 1.5rem; margin-bottom: 10px; color: #D1D5DB; }
+        .hero .arabic-main { font-size: 1.7rem; margin-bottom: 25px; color: var(--accent-green); }
+
+        .hero p {
+            font-size: 1rem;
+            max-width: 800px;
+            margin: 0 auto 5px auto;
+            opacity: 0.9;
+        }
+
+        /* Dual Action Buttons */
+        .cta-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition-fast);
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .btn-primary { background-color: var(--accent-green); color: white; }
+        .btn-primary:hover { background-color: #059669; transform: translateY(-2px); }
+        .btn-secondary { background-color: transparent; color: white; border: 2px solid white; }
+        .btn-secondary:hover { background-color: rgba(255, 255, 255, 0.1); transform: translateY(-2px); }
+        .btn span { font-size: 0.75rem; font-weight: normal; opacity: 0.9; }
+
+        /* Country Flag Animation Grid */
+        .flag-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .flag-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            backdrop-filter: blur(5px);
+            transition: var(--transition-fast);
+        }
+
+        .flag-card:hover {
+            transform: scale(1.08) rotate(1deg);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .flag-icon { font-size: 1.6rem; }
+
+        /* --- CREDENTIALS & TRUST --- */
+        .credentials {
+            padding: 30px 5%;
+            background-color: var(--bg-light);
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .credential-box {
+            background: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            flex: 1;
+            min-width: 280px;
+            border-top: 4px solid var(--secondary-blue);
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .credential-box h3 { font-size: 1.1rem; color: var(--primary-blue); }
+
+        /* --- WORKFLOW PIPELINE --- */
+        .section-title {
+            text-align: center;
+            margin: 50px 0 30px 0;
+            color: var(--primary-blue);
+        }
+        .section-title h2 { font-size: 1.8rem; }
+        .section-title p { font-size: 1.1rem; color: #4B5563; }
+
+        .pipeline {
+            padding: 20px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .step-card {
+            background: white;
+            border: 1px solid #E5E7EB;
+            padding: 25px 20px;
+            border-radius: var(--border-radius);
+            position: relative;
+            transition: var(--transition-fast);
+        }
+
+        .step-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-color: var(--secondary-blue);
+        }
+
+        .step-num {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--secondary-blue);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .step-card h3 { margin: 10px 0 5px 0; font-size: 1.1rem; color: var(--primary-blue); }
+        .step-card p { font-size: 0.85rem; color: #4B5563; }
+
+        /* --- DATA TABLES --- */
+        .table-container {
+            width: 90%;
+            margin: 20px auto 40px auto;
+            overflow-x: auto;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border-radius: var(--border-radius);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            background: white;
+            font-size: 0.85rem;
+        }
+
+        th {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            padding: 12px;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #E5E7EB;
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) { background-color: #F9FAFB; }
+
+        /* --- PORTAL & FORMS --- */
+        .portal-section {
+            background-color: var(--bg-light);
+            padding: 40px 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .portal-section { grid-template-columns: 1fr; }
+            header { flex-direction: column; gap: 10px; text-align: center; }
+            .header-contacts { text-align: center; }
+        }
+
+        .checklist-box, .form-box {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .checklist-box ul { list-style: none; margin-top: 15px; }
+        .checklist-box li { position: relative; padding-left: 25px; margin-bottom: 15px; }
+        .checklist-box li::before {
+            content: '✓'; position: absolute; left: 0; color: var(--accent-green); font-weight: bold;
+        }
+
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-size: 0.85rem; font-weight: 600; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 10px; border: 1px solid #D1D5DB; border-radius: 6px; font-size: 0.9rem;
+        }
+
+        /* --- BENEFITS GRID --- */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            padding: 20px 5%;
+        }
+
+        .benefit-card {
+            padding: 20px;
+            background: #FFFFFF;
+            border-radius: var(--border-radius);
+            border: 1px dashed #D1D5DB;
+            text-align: center;
+        }
+
+        .benefit-icon { font-size: 2rem; margin-bottom: 10px; }
+        .benefit-card h4 { color: var(--primary-blue); margin-bottom: 5px; }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            padding: 40px 5%;
+            font-size: 0.85rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25D366;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2000;
+            transition: var(--transition-fast);
+        }
+
+        .whatsapp-float:hover { transform: translateY(-3px); background-color: #128C7E; }
+        .whatsapp-float span { font-size: 0.7rem; font-weight: normal; opacity: 0.9; }
+    </style>
+</head>
+<body>
+
+    <!-- STICKY HEADER -->
+    <header>
+        <div class="logo-area">
+            <h1>DALOTA FOREIGN EMPLOYMENT</h1>
+            <p class="amharic">ዳሎታ በውጭ ሀገር ስራና ሰራተኛ አገናኝ ኤጀንሲ</p>
+            <p class="arabic">دالوتـا لوكالـة التوظيـف الخـارجـي</p>
+        </div>
+        <div class="header-contacts">
+            <span>📞 0931398879 / 0929015201</span>
+            <a href="mailto:dallolstarma@gmail.com">✉️ dallolstarma@gmail.com</a>
+            <span class="amharic">አዋጅ ቁጥር 923/2008 & 1246/2013</span>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h2>Connecting Verified Ethiopian Talent with Premium Global Markets</h2>
+        <div class="amharic-main">ታማኝ የኢትዮጵያ ሰራተኞችን ከዓለም አቀፍ የስራ ገበያ ጋር እናገናኛለን</div>
+        <div class="arabic-main">ربط الكفاءات الإثيوبية المؤهلة مع الأسواق العالمية المتميزة</div>
+        
+        <p>Fully vetted domestic mobilization to Saudi Arabia, Kuwait, Jordan, and the UAE under legal frameworks.</p>
+        <p class="amharic">በህጋዊ መንገድ ወደ ሳውዲ አረቢያ፣ ኩዌት፣ ጆርዳን እና የተባበሩት አረብ ኤምሬትስ ሰራተኞችን እናሰማራለን።</p>
+        <p class="arabic">تعبئة العمالة المنزلية والمهنية إلى المملكة العربية السعودية، الكويت، الأردن، والإمارات بشكل قانوني كامل.</p>
+        
+        <div class="cta-container">
+            <a href="#employer-form" class="btn btn-primary">
+                Partner With Us / Request Manpower
+                <span>طلب عمالة / الشراكة معنا</span>
+            </a>
+            <a href="#candidate-portal" class="btn btn-secondary">
+                Register to Work / ይመዝገቡ
+                <span>تسجيل الباحثين عن عمل</span>
+            </a>
+        </div>
+
+        <div class="flag-grid">
+            <div class="flag-card"><span class="flag-icon">🇸🇦</span> <span>Saudi Arabia / السعودية</span></div>
+            <div class="flag-card"><span class="flag-icon">🇰🇼</span> <span>Kuwait / الكويت</span></div>
+            <div class="flag-card"><span class="flag-icon">🇯🇴</span> <span>Jordan / الأردن</span></div>
+            <div class="flag-card"><span class="flag-icon">🇦🇪</span> <span>UAE / الإمارات</span></div>
+        </div>
+    </section>
+
+    <!-- CREDENTIALS & TRUST -->
+    <section class="credentials dark-text">
+        <div class="credential-box">
+            <h3>🏢 Corporate Legitimacy</h3>
+            <p class="amharic">ህጋዊ የተመዘገበ ድርጅት</p>
+            <p class="arabic">كيان قانوني مرخص رسميًا</p>
+            <p style="font-size:0.8rem; color:#6B7280;">DALOTA Foreign Employment Agent PLC</p>
+        </div>
+        <div class="credential-box">
+            <h3>🛡️ System Integration</h3>
+            <p class="amharic">የመንግስት የመረጃ መረብ ትስስር</p>
+            <p class="arabic">جاهزية الربط الإلكتروني الحكومي</p>
+            <p style="font-size:0.8rem; color:#6B7280;">Fully integrated with Musaned Platform & WPS</p>
+        </div>
+        <div class="credential-box">
+            <h3>⚖️ Licensing Compliance</h3>
+            <p class="amharic">የስራና ክህሎት ሚኒስቴር ፍቃድ</p>
+            <p class="arabic">مطابقة معايير وزارة العمل</p>
+            <p style="font-size:0.8rem; color:#6B7280;">Ministry of Labor & Skills Authorized Framework</p>
+        </div>
+    </section>
+
+    <!-- WORKFLOW PIPELINE -->
+    <div class="section-title">
+        <h2>Recruitment & Deployment Workflow</h2>
+        <p class="amharic">የቅጥር እና ስምሪት የስራ ሂደት ደረጃዎች</p>
+        <p class="arabic">مسار ومراحل التوظيف والإلحاق بالعمل</p>
+    </div>
+    
+    <section class="pipeline dark-text">
+        <div class="step-card">
+            <div class="step-num">1</div>
+            <h3>Sourcing & Screening</h3>
+            <p class="amharic">ቅምሻ እና ማጣራት፡ የጀርባ ታሪክ እና የስነ-ምግባር ምርመራ ማካሄድ።</p>
+            <p class="arabic">الاستقطاب والفرز: التحقق من الخلفية السلوكية والسجلات الجنائية.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-num">2</div>
+            <h3>Medical Clearance</h3>
+            <p class="amharic">የህክምና ምርመራ፡ የጂ.ሲ.ሲ (GAMCA) ጥብቅ የቪዛ የጤና መስፈርቶችን ማሟላት።</p>
+            <p class="arabic">الفحص الطبي: الامتثال الكامل لمعايير جامكا واللجان الطبية الخليجية.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-num">3</div>
+            <h3>Pre-Departure Training</h3>
+            <p class="amharic">የቅድመ-ስምሪት ስልጠና፡ የቤት አያያዝ፣ የቋንቋ (አረብኛ) እና የባህል ግንዛቤ ትምህርት።</p>
+            <p class="arabic">التدريب التأهيلي: تدريب مكثف على إدارة المنزل، اللغة العربية، والتقاليد.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-num">4</div>
+            <h3>Embassy Attestation</h3>
+            <p class="amharic">የሰነዶች ዝግጅት፡ የውል ስምምነቶች፣ ባዮሜትሪክስ እና የኤምባሲ ቪዛ ማህተም ማረጋገጥ።</p>
+            <p class="arabic">التوثيق السفاري: معالجة العقود الإلكترونية والتبصيم وتصديق التأشيرات.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-num">5</div>
+            <h3>Deployment & Follow-up</h3>
+            <p class="amharic">ጉዞ እና ክትትል፡ የበረራ ትኬት ማስተካከል እና የስራ ላይ ክትትል ድጋፍ።</p>
+            <p class="arabic">الوصول والمتابعة: تنسيق الطيران والدعم المستمر طوال فترة العقد.</p>
+        </div>
+    </section>
+
+    <!-- OFFERS & SALARIES -->
+    <div class="section-title">
+        <h2>Job Categories & Salary Matrix</h2>
+        <p class="amharic">የስራ መደቦች እና የወር ደመወዝ ዝርዝር</p>
+        <p class="arabic">مصفوفة الوظائف والرواتب الشهرية</p>
+    </div>
+
+    <div class="table-container dark-text">
+        <table>
+            <thead>
+                <tr>
+                    <th>Destination / ሀገር / الوجهة</th>
+                    <th>Category / የስራ መደብ / المسمى الوظيفي</th>
+                    <th>Experience / ልምድ / الخبرة</th>
+                    <th>Salary Range / ደመወዝ / الراتب</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>🇸🇦 Saudi Arabia / ሳውዲ</td>
+                    <td>Housemaid / የቤት ሰራተኛ / عاملة منزلية</td>
+                    <td>Fresh / ለመጀመሪያ ጊዜ / لأول مرة</td>
+                    <td><strong>1,000 SAR</strong></td>
+                </tr>
+                <tr>
+                    <td>🇸🇦 Saudi Arabia / ሳውዲ</td>
+                    <td>Housemaid / የቤት ሰራተኛ / عاملة منزلية</td>
+                    <td>2+ Years Exp / የአረብ ሀገር ልምድ / خبرة سنتين+</td>
+                    <td><strong>1,200 SAR</strong></td>
+                </tr>
+                <tr>
+                    <td>🇸🇦 Saudi Arabia / ሳውዲ</td>
+                    <td>Male Driver / ሹፌር / سائق خاص</td>
+                    <td>Fresh / አዲስ / رخصة جديدة</td>
+                    <td><strong>1,000 SAR</strong></td>
+                </tr>
+                <tr>
+                    <td>🇰🇼 Kuwait / ኩዌት</td>
+                    <td>Housemaid / የቤት ሰራተኛ / عاملة منزلية</td>
+                    <td>Fresh / ለመጀመሪያ ጊዜ / لأول مرة</td>
+                    <td><strong>100 KWD</strong></td>
+                </tr>
+                <tr>
+                    <td>🇰🇼 Kuwait / ኩዌት</td>
+                    <td>Housemaid / የቤት ሰራተኛ / عاملة منزلية</td>
+                    <td>2+ Years Exp / ልምድ ያላት / ذوي خبرة</td>
+                    <td><strong>110 KWD</strong></td>
+                </tr>
+                <tr>
+                    <td>🇯🇴 Jordan / ጆርዳን</td>
+                    <td>Domestic Worker / ማንኛውም / عامل منزلي</td>
+                    <td>Legal Minimum / በህጉ መሰረት / الحد الأدنى القانوني</td>
+                    <td><strong>275 USD (Net)</strong></td>
+                </tr>
+                <tr>
+                    <td>🇦🇪 UAE / ኤምሬትስ</td>
+                    <td>Housemaid / የቤት ሰራተኛ / عاملة منزلية</td>
+                    <td>Fresh / አዲስ / أول مرة</td>
+                    <td><strong>1,000 AED</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- LEGAL BENEFITS -->
+    <div class="section-title">
+        <h2>Mandatory Legal Benefits (Employer Obligations)</h2>
+        <p class="amharic">በህግ የተደነገጉ ጥቅማጥቅሞች (የቀጣሪ ግዴታዎች)</p>
+        <p class="arabic">المزايا القانونية الإلزامية (التزامات صاحب العمل)</p>
+    </div>
+    
+    <section class="benefits-grid dark-text">
+        <div class="benefit-card">
+            <div class="benefit-icon">🍱</div>
+            <h4>Food & Housing / ምግብና መኖርያ / الطعام والسكن</h4>
+            <p class="amharic">ነፃ ንፁህ መኖርያ ቤት እና በቀን ሶስት ጊዜ የተመጣጠነ ምግብ ማቅረብ።</p>
+            <p class="arabic">توفير سكن ملائم وآمن وثلاث وجبات غذائية يومية مجانية.</p>
+        </div>
+        <div class="benefit-card">
+            <div class="benefit-icon">🏥</div>
+            <h4>Medical Insurance / የህክምና መድን / التأمين الطبي</h4>
+            <p class="amharic">ለባለ 2 ዓመት የስራ ውል ሙሉ በሙሉ በቀጣሪው የሚሸፈን የህክምና ዋስትና።</p>
+            <p class="arabic">تأمين صحي شامل مدفوع بالكامل من قبل صاحب العمل طوال فترة العقد.</p>
+        </div>
+        <div class="benefit-card">
+            <div class="benefit-icon">✈️</div>
+            <h4>Air Travel / የነፃ በረራ ትኬት / تذاكر الطيران</h4>
+            <p class="amharic">በስራ መጀመሪያ እና ውል ሲያልቅ ነፃ የደርሶ መልስ የአየር ጉዞ ትኬት።</p>
+            <p class="arabic">تذكرة سفر مجانية عند الاستقدام وتذكرة عودة عند إتمام العقد بنجاح.</p>
+        </div>
+        <div class="benefit-card">
+            <div class="benefit-icon">💳</div>
+            <h4>Traceable Payments / ደህንነቱ የተጠበቀ ክፍያ / حماية الأجور</h4>
+            <p class="amharic">ደመወዝ በባንክ ወይም በመንግስት የደመወዝ ጥበቃ መረብ (WPS) ማስተላለፍ።</p>
+            <p class="arabic">تحويل الراتب عبر الأنظمة الرسمية الموثوقة مثل مساند أو حماية الأجور.</p>
+        </div>
+    </section>
+
+    <!-- INTERACTION & PORTAL SECTION -->
+    <section class="portal-section dark-text" id="candidate-portal">
+        <div class="checklist-box">
+            <h3>🇪🇹 Requirements Check / መስፈርቶች / الشروط</h3>
+            <p class="amharic">ለስራ ፈላጊ አመልካቾች የሚያስፈልጉ መሰረታዊ ነገሮች፡</p>
+            <p class="arabic">الشروط الأساسية الواجب توفرها في المتقدمين للعمل:</p>
+            <ul>
+                <li>Valid Ethiopian Passport / የጸና የኢትዮጵያ ፓስፖርት / جواز سفر إثيوبي ساري المفعول</li>
+                <li>Legal Age Limit / በህጉ የተፈቀደ የእድሜ ክልል / السن القانوني المعتمد للعمل بالخارج</li>
+                <li>Clean Criminal Background / ከወንጀል ነፃ የፖሊስ ማረጋገጫ / صحيفة جنائية سليمة تامة</li>
+                <li>Pre-departure training certificate / የቅድመ ስምሪት ስልጠና ምስክር ወረቀት / شهادة التدريب المهني</li>
+                <li>Passed medical fitness tests / የህክምና ምርመራ ያለፈ / اجتياز الفحوصات الطبية المعتمدة</li>
+            </ul>
+        </div>
+
+        <div class="form-box" id="employer-form">
+            <h3>Manpower Demand / የሰራተኛ ፍላጎት ጥያቄ / طلبات استقدام العمالة</h3>
+            <form onsubmit="event.preventDefault(); alert('Submission Received. Thank you.');">
+                <div class="form-group">
+                    <label>Agency or Employer Name / ስም / اسم المكتب أو صاحب العمل</label>
+                    <input type="text" required placeholder="e.g. Saudi Recruitment Company">
+                </div>
+                <div class="form-group">
+                    <label>Destination Country / መድረሻ ሀገር / دولة الاستقدام</label>
+                    <select required>
+                        <option value="">-- Select / ይምረጡ / اختر الدولة --</option>
+                        <option>Saudi Arabia / السعودية</option>
+                        <option>Kuwait / الكويت</option>
+                        <option>Jordan / الأردن</option>
+                        <option>UAE / الإمارات</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Requirements Details / ተጨማሪ ማብራሪያ / تفاصيل الطلب والشروط</label>
+                    <textarea rows="4" placeholder="Specify categories, visa availability details..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%;">
+                    Submit Demand Letter / ፍላጎትን ይላኩ
+                    <span>إرسال طلب الاستقدام الرسمي</span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h4>DALOTA Foreign Employment Agent PLC</h4>
+                <p class="amharic">ዳሎታ በውጭ ሀገር ስራና ሰራተኛ አገናኝ ኃላ የተ የግል ማህበር</p>
+                <p class="arabic">شركة دالوتـا لوكالة التوظيف الخارجي المحدودة</p>
+                <p style="opacity:0.8; margin-top:5px;">Manager: Mr. ADEM MOHAMMED ADEM</p>
+            </div>
+            <div>
+                <h4>Office Address / አድራሻ / العنوان</h4>
+                <p class="amharic">አዲስ አበባ፣ አራዳ ክፍለ ከተማ፣ ወረዳ 02፣ የቤት ቁጥር 490/491/F2/2</p>
+                <p class="arabic">أديس أبابا، حي أرادا، دائرة 02، مبنى رقم 490/491/F2/2</p>
+                <p style="opacity:0.8; margin-top:5px;">Location: Arada Sub-City, Woreda 02, House No. 490/491/F2/2</p>
+            </div>
+            <div>
+                <h4>Welfare Support / የደህንነት ክትትል / حماية ورعاية العمالة</h4>
+                <p class="amharic">የሰራተኞችን ደህንነት ለመጠበቅ፣ የደመወዝ መዘግየትን እና አለመግባባቶችን ለመፍታት የ24 ሰዓት የክትትል መስመር አለን።</p>
+                <p class="arabic">نلتزم بمتابعة العمالة وحل النزاعات العمالية أو تأخر الأجور عبر قنوات دعم على مدار 24 ساعة.</p>
+            </div>
+        </div>
+        <hr style="opacity:0.1; margin-bottom:20px;">
+        <p style="text-align:center; opacity:0.7;">© 2026 Dalota Foreign Employment Agent PLC. All rights reserved under Ethiopian Proclamations 923/2016 & 1246/2021[cite: 1].</p>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/251929015201" class="whatsapp-float" target="_blank">
+        <strong>💬 WhatsApp Link</strong>
+        <span>تواصل واتساب مباشرة</span>
+    </a>
+
+</body>
+</html>
