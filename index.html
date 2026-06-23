@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -470,6 +471,7 @@
             header { flex-direction: column; gap: 15px; text-align: center; }
             td, th { padding: 12px 14px; font-size: 0.85rem; }
             .section-title { font-size: 1.8rem; margin: 40px 0 20px 0; }
+            .map-inner iframe { height: 300px; }
         }
 
         .checklist-box, .form-box { 
@@ -511,6 +513,31 @@
         .form-group select option {
             background: var(--gunmetal-silver);
             color: var(--bright-text);
+        }
+
+        /* --- INTERACTIVE GOOGLE MAPS BLOCK --- */
+        .map-section {
+            max-width: 1200px;
+            margin: 0 auto 80px auto;
+            padding: 0 5%;
+        }
+
+        .map-inner {
+            background: var(--glass-card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 12px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--cyber-shadow);
+        }
+
+        .map-inner iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 10px;
+            filter: grayscale(0.4) invert(0.9) contrast(1.2); /* Sleek modern dark maps filter match */
         }
 
         /* --- FOOTER --- */
@@ -555,14 +582,12 @@
 </head>
 <body>
 
-    <!-- STICKY HEADER -->
     <header id="header-section">
         <div class="logo-area">
             <h1 id="txt-logo">DALOTA FOREIGN EMPLOYMENT</h1>
             <p id="txt-sub-logo">Licensed Private Agency | Proclamation no. 923/2016</p>
         </div>
         
-        <!-- Language Control Panel -->
         <div class="lang-switcher">
             <button class="lang-btn active" onclick="switchLanguage('en', this)">EN</button>
             <button class="lang-btn" onclick="switchLanguage('am', this)">አማርኛ</button>
@@ -570,7 +595,6 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
     <section class="hero">
         <h2 id="txt-hero-title">Connecting Verified Ethiopian Talent with Premium Global Markets</h2>
         <p id="txt-hero-desc">Enabling reliable, fully vetted domestic mobilization to Saudi Arabia, Kuwait, Jordan, and the UAE under absolute legal compliance.</p>
@@ -580,7 +604,6 @@
             <a href="#seeker-form-box" class="btn btn-secondary" id="btn-cta-2">Register to Work</a>
         </div>
 
-        <!-- STACKED FLAGS LAYOUT -->
         <div class="flag-grid">
             <div class="flag-card">
                 <img src="https://flagcdn.com/sa.svg" alt="Saudi Arabia Flag" class="flag-img">
@@ -601,7 +624,6 @@
         </div>
     </section>
 
-    <!-- CREDENTIALS & TRUST -->
     <section class="credentials">
         <div class="credential-box">
             <h3 id="cred-1-title">🏢 Registered Corporate Entity</h3>
@@ -617,7 +639,6 @@
         </div>
     </section>
 
-    <!-- WORKFLOW PIPELINE -->
     <h2 class="section-title" id="title-pipeline">Recruitment & Deployment Workflow</h2>
     <section class="pipeline">
         <div class="step-card">
@@ -647,7 +668,6 @@
         </div>
     </section>
 
-    <!-- DATA TABLES -->
     <h2 class="section-title" id="title-matrix">Job Categories & Salary Structure</h2>
     <div class="table-container">
         <table>
@@ -671,7 +691,6 @@
         </table>
     </div>
 
-    <!-- OBLIGATIONS -->
     <h2 class="section-title" id="title-benefits">Required Legal Benefits (Employer Obligations)</h2>
     <section class="benefits-grid">
         <div class="benefit-card">
@@ -691,7 +710,6 @@
         </div>
     </section>
 
-    <!-- PORTAL & INTERACTION FORMS -->
     <section class="portal-section" id="candidate-portal">
         <div class="checklist-box">
             <h3 id="check-title">🇪🇹 Applicant Verification Checks</h3>
@@ -727,7 +745,6 @@
         </div>
     </section>
 
-    <!-- JOB SEEKER DIRECT ONLINE REGISTRATION -->
     <h2 class="section-title" id="title-seeker-section">Job Seeker Application Desk</h2>
     <div style="max-width: 800px; margin: 0 auto 80px auto; padding: 0 5%;">
         <div class="form-box" id="seeker-form-box">
@@ -766,7 +783,18 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
+    <h2 class="section-title" id="title-map">Find Our Office</h2>
+    <section class="map-section">
+        <div class="map-inner">
+            <iframe 
+                src="https://maps.google.com/maps?q=Addis%20Ababa%2C%20Arada%20Sub-City%2C%20Woreda%2002&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
     <footer>
         <div class="footer-grid">
             <div>
@@ -786,12 +814,10 @@
         <p style="text-align:center; opacity:0.6;">© 2026 Dalota Foreign Employment Agent PLC. Framework Compliance under Proclamations 923/2016 & 1246/2021.</p>
     </footer>
 
-    <!-- STICKY WHATSAPP BUTTON -->
     <a href="https://wa.me/251929015201" class="whatsapp-float" target="_blank" id="btn-whatsapp">
         <span>💬 Contact WhatsApp</span>
     </a>
 
-    <!-- TRANSLATION SCRIPT ENGINE -->
     <script>
         const translations = {
             en: {
@@ -838,6 +864,7 @@
                 lblS5: 'Experience Level', lblS6: '-- Select Experience --', btnSeekerSub: 'Send Application via Email',
                 emailSubject: 'New Job Seeker Online Registration',
 
+                mapTitle: 'Find Our Office',
                 fManager: 'General Manager: Mr. Adem Mohammed Adem',
                 fAddrT: 'Head Office Location', fAddrB: 'Addis Ababa, Arada Sub-City, Woreda 02, House No. 490/491',
                 fWelfT: 'Welfare Monitoring', fWelfB: 'Active support channel handling salary disputes and worker safety tracking abroad.',
@@ -848,18 +875,18 @@
                 logo: 'ዳሎታ በውጭ ሀገር ስራና ሰራተኛ አገናኝ',
                 subLogo: 'ህጋዊ ፈቃድ ያለው ኤጀንሲ | አዋጅ ቁጥር 923/2008',
                 heroTitle: 'ታማኝ የኢትዮጵያ ሰራተኞችን ከዓለም አቀፍ የስራ ገበያ ጋር እናገናኛለን',
-                heroDesc: 'በህጋዊ መንገድ የተጣሩ ሰራተኞችን ወደ ሳውዲ አረቢያ، ኩዌት፣ ጆርዳን እና ኤምሬትስ በታማኝነት እናሰማራለን።',
+                heroDesc: 'በህጋዊ መንገድ የተጣሩ ሰራተኞችን ወደ ሳውዲ አረቢያ፣ ኩዌት፣ ጆርዳን እና ኤምሬትስ በታማኝነት እናሰማራለን።',
                 cta1: 'አብረን እንስራ / ሰራተኛ ይጠይቁ',
                 cta2: 'ለመቀጠር ይመዝገቡ',
                 sa: 'ሳውዲ አረቢያ', kw: 'ኩዌት', jo: 'ጆርዳን', ae: 'ኤምሬትስ',
                 cred1T: '🏢 ህጋዊ የተመዘገበ ድርጅት', cred1B: 'ዳሎታ በውጭ ሀገር ስራና ሰራተኛ አገናኝ ኃ/የተ/የግል ማህበር',
-                cred2T: '🛡️ የመረጃ መረብ ዝግጁነት', cred2B: 'ከሙሳነድ እና የደமወዝ ጥبهቃ ስርዓቶች ጋር የተገናኘ',
-                cred3T: '⚖️ ህጋዊ ተገዢነት', cred3B: 'በስራና ክህلوት ሚኒስቴር እውቅና የተሰጠው',
+                cred2T: '🛡️ የመረጃ መረብ ዝግጁነት', cred2B: 'ከሙሳነድ እና የደመወዝ ጥበቃ ስርዓቶች ጋር የተገናኘ',
+                cred3T: '⚖️ ህጋዊ ተገዢነት', cred3B: 'በስራና ክህሎት ሚኒስቴር እውቅና የተሰጠው',
                 pipeTitle: 'የቅጥር እና ስምሪት የስራ ሂደት',
                 s1T: 'ምልመላ እና ማጣራት', s1B: 'የጀርባ ታሪክ ምርመራ እና የሀገር ውስጥ መዝገቦችን ማረጋገጥ።',
                 s2T: 'የህክምና ምርመرا', s2B: 'የባህረ ሰላጤው ቪዛ ጥብቅ የጤና መስፈርቶችን ማሟላት ማረጋገጥ።',
                 s3T: 'የቅድመ-ስምሪት ስልጠና', s3B: 'የቤት አያያዝ ትምህርት እና መሰረታዊ የአረብኛ ቋንቋ ስልጠና።',
-                s4T: 'የኤምባሲ ማረጋገጫ', s4B: 'ህጋዊ የኤሌክትሮኒክስ ውሎችን ማዘጋጀት እና የቪዛ ማህተም ማጠናቀቅ።',
+                s4T: 'የኤምባሲ ማረጋገጫ', s4B: 'ህጋዊ የኤሌክትሮنيክስ ውሎችን ማዘጋጀት እና የቪዛ ማህተም ማጠናቀቅ።',
                 s5T: 'ስምሪት እና ክትትል', s5B: 'የበረራ ትኬት ዝግጅት እና የ24 ሰዓት የስራ ላይ ድጋፍ አቅርቦት።',
                 matrixTitle: 'የስራ መደቦች እና የወር ደመወዝ',
                 thCountry: 'መድረሻ ሀገር', thJob: 'የስራ መደብ', thExp: 'የልምድ ደረጃ', thSalary: 'የወር ደመወዝ መጠን',
@@ -876,7 +903,7 @@
                     'የቅድመ ስምሪት ስልጠና ማጠናቀቅ',
                     'የህክምና ምርመራ ማለፍ'
                 ],
-                formT: 'የሰራተኛ ፍላጎት ማቅرهቢያ ፎርም',
+                formT: 'የሰራተኛ ፍላጎት ማቅረቢያ ፎርም',
                 lblF1: 'የድርጅቱ ወይም የቀጣሪው ስም', lblF2: 'የሚፈልጉት መድረሻ ሀገር', lblF3: '-- ምርጫ ይምረጡ --', btnSub: 'ፎርሙን ላክ',
                 
                 // Job Seeker Form Amharic
@@ -887,6 +914,7 @@
                 lblS5: 'የስራ ልምድ ደረጃ', lblS6: '-- የልምድ ደረጃ ይምረጡ --', btnSeekerSub: 'ማመልከቻውን በኢሜል ላክ',
                 emailSubject: 'አዲስ የስራ ፈላጊ የመስመር ላይ ምዝገባ',
 
+                mapTitle: 'ቢሯችንን ይጎብኙ',
                 fManager: 'ስራ አስኪያጅ: አቶ አደም መሀመድ አደም',
                 fAddrT: 'የዋናው ቢሮ አድራሻ', fAddrB: 'አዲስ አበባ፣ አራዳ ክፍለ ከተማ፣ ወረዳ 02፣ የቤት ቁጥር 490/491',
                 fWelfT: 'የሰራተኞች ደህንነት ክትትል', fWelfB: 'የደመወዝ መዘግየቶችን እና ችግሮችን ለመፍታት ዝግጁ የሆኑ የክትትል መስመሮች።',
@@ -936,6 +964,7 @@
                 lblS5: 'مستوى الخبرة السابقة', lblS6: '-- اختر مستوى الخبرة --', btnSeekerSub: 'إرسال طلب التوظيف عبر البريد',
                 emailSubject: 'تسجيل طلب عمل جديد عبر الموقع الإلكتروني',
 
+                mapTitle: 'موقع مكتبنا',
                 fManager: 'المدير العام: السيد آدم محمد آدم',
                 fAddrT: 'موقع المكتب الرئيسي', fAddrB: 'أديس أبابا، حي أرادا، دائرة 02، مبنى رقم 490/491',
                 fWelfT: 'متابعة ورعاية العمالة', fWelfB: 'نتابع بدقة شؤون العمالة وحل مشاكل الأجور لضمان استقرار العلاقة التعاقدية.',
@@ -1041,6 +1070,7 @@
             document.getElementById('lbl-s6').innerText = data.lblS6;
             document.getElementById('btn-seeker-submit').innerText = data.btnSeekerSub;
 
+            document.getElementById('title-map').innerText = data.mapTitle;
             document.getElementById('f-manager').innerText = data.fManager;
             document.getElementById('f-addr-title').innerText = data.fAddrT;
             document.getElementById('f-addr-body').innerText = data.fAddrB;
